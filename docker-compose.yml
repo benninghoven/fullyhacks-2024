@@ -10,4 +10,11 @@ services:
     environment:
       - FLASK_APP=app
       - FLASK_RUN_HOST=0.0.0.0
-    command: sh -c "pip install --no-cache-dir -r requirements.txt && flask run --reload"
+    command: sh -c "pip install --no-cache-dir -r requirements.txt && OPENAI_KEY=$(cat /run/secrets/openai_key) flask run --reload"
+    secrets:
+      - openai_key
+
+
+secrets:
+  openai_key:
+   file: ./backend/openai_key.txt
