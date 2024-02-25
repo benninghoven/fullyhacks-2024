@@ -8,17 +8,20 @@
 }
 
 .chat__messages {
-  flex: 1;
-  overflow: auto;
+  /* flex: 1; */
   padding: 10px;
   font-size: 20px;
   display: flex;
-  flex-direction: column-reverse;
-  width: 100%; /* Set a fixed width for the messages container */
+  flex-direction: column;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.7) transparent;
 }
 
+
 .chat__message {
-  max-width: 60%;
+  max-width: 60%; /* This will prevent the message from expanding beyond 60% of its container */
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 20px;
@@ -32,23 +35,23 @@
 
 .chat__input {
   display: flex;
+  justify-content: center; /* Centers children horizontally */
   padding: 20px;
   border-radius: 15px;
   background-color: transparent;
 }
 
+
 .chat__input input {
-  width: 200px; /* Set the desired fixed width */
-  max-width: 100%; /* Ensures it doesn't exceed the parent's width */
   padding: 10px;
   border: none;
   border-radius: 15px;
   font-size: 20px;
-  background-color: black;
+  background-color: gray;
 }
 
 .chat__input button {
-  width: 100px; /* Set the desired width */
+  width: 100px;
   padding: 10px;
   border: none;
   border-radius: 15px;
@@ -59,8 +62,7 @@
 }
 
 .chat__input form {
-  flex: 1; /* Take up remaining space */
-  display: inline-flex;
-  align-items: flex-end; /* Center items vertically */
+  max-width: 200px; /* This will prevent the input form from expanding beyond 200px */
+  align-items: flex-end;
   border-color: transparent;
 }
