@@ -4,7 +4,4 @@ from app.utils.query import query
 
 @bp.get('/prompt')
 def prompt():
-    
-
-    
-    return
+    return "Hello Yams"
