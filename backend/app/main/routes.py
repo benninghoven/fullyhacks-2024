@@ -1,5 +1,5 @@
 from app.main import bp
-from app.utils.query import query
+from app.utils.query import query, chat
 from flask import Flask, jsonify, request
 import os
 
