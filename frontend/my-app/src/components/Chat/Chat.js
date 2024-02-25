@@ -23,7 +23,7 @@ const Chat = () => {
   const sendMessage = (event) => {
     event.preventDefault();
     if(input.trim() !== '') {
-      setUserMessages([...user_messages, { text: input, user: true }]);
+      setUserMessages([...user_messages, { text: input, user: false }]);
       setInput('');
     }
   };
