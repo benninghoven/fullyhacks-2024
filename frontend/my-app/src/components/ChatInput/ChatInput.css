@@ -1,32 +1,96 @@
 .chat__input {
-  display: flex;
-  justify-content: center; /* Centers children horizontally */
-  padding: 20px;
-  border-radius: 15px;
-  background-color: transparent;
-}
-
-.chat__input input {
-    padding: 10px;
-    border: none;
+    display: flex;
+    justify-content: center; /* Centers children horizontally */
+    padding: 20px;
     border-radius: 15px;
-    font-size: 20px;
-    background-color: gray;
-}
+    background-color: transparent;
+  }
   
-.chat__input button {
-    width: 100px;
-    padding: 10px;
-    border: none;
-    border-radius: 15px;
-    background-color: cyan;
-    color: white;
-    cursor: pointer;
-    font-size: 20px;
-}
+  .chat__input input {
+      padding: 10px;
+      border: none;
+      border-radius: 15px;
+      font-size: 20px;
+      /* background-color: gray; */
+  }
+    
+  .chat__input button {
+      width: 100px;
+      padding: 10px;
+      border: none;
+      border-radius: 15px;
+      /* color: white; */
+      cursor: pointer;
+      font-size: 20px;
+  }
+    
+  .chat__input form {
+      max-width: 200px; /* This will prevent the input form from expanding beyond 200px */
+      align-items: flex-end;
+      /* border-color: transparent; */
+  }
   
-.chat__input form {
-    max-width: 200px; /* This will prevent the input form from expanding beyond 200px */
-    align-items: flex-end;
-    border-color: transparent;
-}
+  /* START Custom code for the input bar*/
+  
+  .fancy {
+      --offset: 3px;
+      background: rgb(55, 21, 90);
+      border-radius: 50px;
+      position: fixed;
+      bottom: 5px; /* Position the form at the bottom */
+      left: 50%; /* Position the form in the middle horizontally */
+      transform: translate(-50%, 0);
+      height: 75px;
+      width: 400px;
+      max-width: 100%; 
+      overflow: hidden;
+  }
+  
+  /* Conic gradient */
+  .fancy::before { 
+      content: '';
+      background: conic-gradient(transparent 270deg, white, transparent);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      aspect-ratio: 1;
+      width: 100%;
+      animation: rotate 2s linear infinite;
+  }
+  
+  /* Overlay */
+  .fancy::after {
+      content: '';
+      background: inherit;
+      border-radius: inherit;
+      position: absolute;
+      inset: var(--offset);
+      height: calc(100% - 2 * var(--offset));
+      width: calc(100% - 2 * var(--offset));
+  }
+  
+  .fancy input {
+      background: transparent;
+      color: white;
+      font-size: 1.5rem;
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      padding: 1.5rem;
+      border: transparent;
+  }
+  
+  @keyframes rotate {
+      from {
+          transform: translate(-50%, -50%) scale(1.4) rotate(0turn);
+      }
+  
+      to {
+          transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+      }
+  }
+  
+  /* END Custom code for the input bar*/
+  
+  
