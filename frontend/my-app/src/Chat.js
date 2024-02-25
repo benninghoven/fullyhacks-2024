@@ -15,7 +15,7 @@ const Chat = () => {
   const sendMessage = (event) => {
     event.preventDefault();
     if(input.trim() !== '') {
-      setMessages([{ text: input, user: true }, ...messages]);
+      setMessages([...messages, { text: input, user: true }]);
       setInput('');
     }
   };
@@ -27,13 +27,13 @@ const Chat = () => {
         <button type="submit" onClick={sendMessage}>Send</button>
       </form>
       <div className="chat__messages">
-        <div ref={messagesStartRef} />
-        {messages.map((message, i) => (
-          <div key={i} className={`chat__message ${message.user ? 'chat__userMessage' : ''}`}>
-            <p>{message.text}</p>
-          </div>
-        ))}
-      </div>
+  {messages.slice(0).reverse().map((message, i) => (
+    <div key={i} className={`chat__message ${message.user ? 'chat__userMessage' : ''}`}>
+      <p>{message.text}</p>
+    </div>
+  ))}
+  <div ref={messagesStartRef} />
+</div>
     </div>
   );
 };
