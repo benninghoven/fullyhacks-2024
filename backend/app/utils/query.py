@@ -22,15 +22,15 @@ def query(collection, prompt):
     query_engine = index.as_query_engine()
     return query_engine.query(prompt).response
 
-def chat(collection, prompt):
-    print(collection)
-    index = RetrieveFromStorageContext(collection=collection)
-    # chat_engine = index.as_chat_engine()
-    chat_engine = index.as_chat_engine(
-        chat_mode="context",
-        # memory=memory,
-        system_prompt=(
-            "You are an education chatbot. You are given a textbook as a context. You can only answer questions that is within your context information. If you cannot answer, say that the question is out of context"
-        ),
-    )
-    return chat_engine.chat(prompt).response
+# def chat(collection, prompt):
+#     print(collection)
+#     index = RetrieveFromStorageContext(collection=collection)
+#     # chat_engine = index.as_chat_engine()
+#     chat_engine = index.as_chat_engine(
+#         chat_mode="context",
+#         # memory=memory,
+#         system_prompt=(
+#             "You are an education chatbot. You are given a textbook as a context. You can only answer questions that is within your context information. If you cannot answer, say that the question is out of context"
+#         ),
+#     )
+#     return chat_engine.chat(prompt).response
