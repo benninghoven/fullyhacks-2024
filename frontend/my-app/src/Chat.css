@@ -8,7 +8,7 @@
 }
 
 .chat__messages {
-  flex: 1;
+  /* flex: 1; */
   padding: 10px;
   font-size: 20px;
   display: flex;
