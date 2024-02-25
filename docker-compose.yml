@@ -25,6 +25,7 @@ services:
     working_dir: /app
     environment:
       - NODE_ENV=development
+      - HOST=0.0.0.0
     command: sh -c "npm install && npm start"
     networks:
       - fullyhacks-network
