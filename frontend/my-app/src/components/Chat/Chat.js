@@ -1,39 +1,37 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ChatInput from '../ChatInput/ChatInput';
+import ChatHistory from '../ChatHistory/ChatHistory';
+
 import './Chat.css';
 
 const Chat = () => {
-  const [messages, setMessages] = useState([]);
+  // messages:  stores chat history
+  const [user_messages, setUserMessages] = useState([]);
+
+  // input:     stores user input
   const [input, setInput] = useState('');
-  const messagesStartRef = useRef(null);
 
-  const scrollToTop = () => {
-    messagesStartRef.current?.scrollIntoView({ behavior: "smooth" })
+  // on new messages, call scrollToBottom to render new messages
+  const messagesEndRef = useRef(null);
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
+  useEffect(scrollToBottom, [user_messages]);
 
-  useEffect(scrollToTop, [messages]);
-
+  // on input submit, send message
+  // this is where we will call the api
   const sendMessage = (event) => {
     event.preventDefault();
     if(input.trim() !== '') {
-      setMessages([...messages, { text: input, user: true }]);
+      setUserMessages([...user_messages, { text: input, user: false }]);
       setInput('');
     }
   };
 
   return (
     <div className="chat">
-      <form className="chat__input">
-        <input value={input} onChange={(e) => setInput(e.target.value)} />
-        <button type="submit" onClick={sendMessage}>Send</button>
-      </form>
-      <div className="chat__messages">
-  {messages.slice(0).reverse().map((message, i) => (
-    <div key={i} className={`chat__message ${message.user ? 'chat__userMessage' : ''}`}>
-      <p>{message.text}</p>
-    </div>
-  ))}
-  <div ref={messagesStartRef} />
-</div>
+      <ChatInput input={input} sendMessage={sendMessage} setInput={setInput}/>
+      <ChatHistory user_messages={user_messages} messagesEndRef={messagesEndRef}/>
     </div>
   );
 };

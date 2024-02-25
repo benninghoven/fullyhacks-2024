@@ -1,0 +1,32 @@
+.chat__input {
+  display: flex;
+  justify-content: center; /* Centers children horizontally */
+  padding: 20px;
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+.chat__input input {
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: gray;
+}
+  
+.chat__input button {
+    width: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: cyan;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+  
+.chat__input form {
+    max-width: 200px; /* This will prevent the input form from expanding beyond 200px */
+    align-items: flex-end;
+    border-color: transparent;
+}
