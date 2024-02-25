@@ -3,9 +3,8 @@ from app.utils.query import query
 from flask import Flask, jsonify, request
 
 
-@bp.route('/prompt', methods=["GET", "POST"])
+@bp.route('/prompt', methods=["POST"])
 def prompt():
-
     if request.method == "POST":
 
         data = request.get_json()
@@ -14,16 +13,9 @@ def prompt():
 
         return jsonify({
             "reponse": response,
-            })
-
-    # elif request.method == 'POST':
-    #     data = request.get_json()
-
-    #     return jsonify({
-    #         "prompt": data.get("prompt", "ERROR: No prompt provided"),
-    #         })
-    # else:
-    #     return jsonify({"error": "Unsupported method"}), 400
+        })
+    else:
+        return jsonify({"error": "Unsupported method"}), 400
 
 
 @bp.route('/textbooks', methods=["GET", "POST"])

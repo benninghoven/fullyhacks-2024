@@ -23,25 +23,24 @@ const Chat = () => {
   const sendMessage = async (event) => {
     event.preventDefault();
 
-    let response = await fetch('http://flask-app:15000/prompt', 
+    let response = await fetch('http://localhost:5000/prompt', 
       {
-        'method': 'POST',
-        'headers': {
+        method: 'POST',
+        headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
+          // 'Access-Control-Allow-Origin': '*'
         },
-        'body': {
+        body: JSON.stringify({
           'prompt': input.trim(),
-        }
+        })
       }
     )
 
     let response_data = await response.json()
-    let reply = response_data["response"];
-    console.log(reply);
+    console.log(response_data);
 
     if(input.trim() !== '') {
-      setUserMessages([...user_messages, { text: reply, user: false }]);
+      setUserMessages([...user_messages, { text: response_data.reponse, user: false }]);
       setInput('');
     }
   };
