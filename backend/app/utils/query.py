@@ -15,6 +15,6 @@ def RetrieveFromStorageContext(collection) -> VectorStoreIndex:
 # retrieve llama index from storage context and query
 def query(collection, prompt):
     print(collection)
-    index = RetrieveFromStorageContext(collection=collection)
-    query_engine = index.as_query_engine()
+    _index = RetrieveFromStorageContext(collection=collection)
+    query_engine = _index.as_query_engine()
     return query_engine.query(prompt).response

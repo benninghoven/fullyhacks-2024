@@ -1,7 +1,6 @@
 from app.main import bp
 from app.utils.query import query
 from flask import jsonify, request
-import os
 
 
 @bp.route('/prompt', methods=["POST"])
