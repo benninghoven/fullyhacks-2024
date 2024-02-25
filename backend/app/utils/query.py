@@ -18,3 +18,9 @@ def query(collection, prompt):
     index = RetrieveFromStorageContext(collection=collection)
     query_engine = index.as_query_engine()
     return query_engine.query(prompt).response
+
+def chat(collection, prompt):
+    print(collection)
+    index = RetrieveFromStorageContext(collection=collection)
+    chat_engine = index.as_chat_engine()
+    return chat_engine.chat(prompt).response
