@@ -1,0 +1,13 @@
+version: '3'
+services:
+  flask-app:
+    image: python:3.10.2
+    volumes:
+      - ./backend:/app
+    ports:
+      - "15000:5000"
+    working_dir: /app
+    environment:
+      - FLASK_APP=app
+      - FLASK_RUN_HOST=0.0.0.0
+    command: sh -c "pip install Flask && flask run"
