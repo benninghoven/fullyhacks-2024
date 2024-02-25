@@ -1,5 +1,8 @@
 version: '3'
+
+
 services:
+
   flask-app:
     image: python:3.10.2
     volumes:
@@ -38,6 +41,3 @@ networks:
 secrets:
   openai_key:
    file: ./backend/openai_key.txt
-
-
-
