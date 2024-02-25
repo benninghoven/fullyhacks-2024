@@ -6,6 +6,10 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, rgb(59, 2, 97), rgb(0, 0, 0),rgb(59, 2, 97), rgb(0, 0, 0), rgb(59, 2, 97));
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+  font-style: normal;  
 }
 
 .app {
@@ -14,5 +18,9 @@ body {
   /* display: flex; */
   justify-content: center;
   align-items: center;
-  font-family: 'Arial', sans-serif; /* Use a modern font */
+  /* font-family: 'Arial', sans-serif; Use a modern font */
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+  font-style: normal;  
 }

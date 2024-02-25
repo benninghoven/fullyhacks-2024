@@ -41,9 +41,10 @@
       left: 50%; /* Position the form in the middle horizontally */
       transform: translate(-50%, 0);
       height: 75px;
-      width: 400px;
+      width: 600px;
       max-width: 100%; 
       overflow: hidden;
+      margin-bottom: 20px;
   }
   
   /* Conic gradient */

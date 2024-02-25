@@ -12,4 +12,9 @@
     width: 60%;
     display: flex;
     justify-content: center;
+    background-color: rgba(255,255,255, 0.1);
+    /* border-color: #ffb641; */
+    border: #ffb641 solid 5px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 1px 1px #0ff;
 }

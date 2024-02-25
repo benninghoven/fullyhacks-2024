@@ -10,7 +10,8 @@ def prompt():
 
         data = request.get_json()
         prompt = data["prompt"]
-        response = query("Computer Networking - A Top Down Approach", prompt)
+        textbook = data["textbook"]
+        response = query(textbook, prompt)
 
         return jsonify({
             "reponse": response,

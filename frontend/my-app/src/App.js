@@ -6,10 +6,13 @@ import Container from './components/Container/Container';
 
 const App = () => {
   return (
-    <div className="app">
-      <Header />
-      <Container />
-    </div>
+    <>
+      <div className="app">
+        <Header />
+        <Container />
+      </div>
+    
+    </>
   );
 };
 

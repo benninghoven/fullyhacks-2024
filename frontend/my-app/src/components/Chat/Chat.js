@@ -3,6 +3,7 @@ import ChatInput from '../ChatInput/ChatInput';
 import ChatHistory from '../ChatHistory/ChatHistory';
 
 import './Chat.css';
+import MenuButton from './MenuButton';
 
 const Chat = () => {
   // messages:  stores chat history
@@ -28,6 +29,8 @@ const Chat = () => {
       setInput('');
     }
 
+
+
     let response = await fetch('http://0.0.0.0:15000/prompt',
       {
         method: 'POST',
@@ -37,6 +40,7 @@ const Chat = () => {
         },
         body: JSON.stringify({
           'prompt': input.trim(),
+          'textbook': localStorage.getItem('textbook')
         })
       }
     )
@@ -48,10 +52,15 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat">
-      <ChatInput input={input} sendMessage={sendMessage} setInput={setInput}/>
-      <ChatHistory user_messages={user_messages} messagesEndRef={messagesEndRef}/>
-    </div>
+    <>
+      <div className="chat">
+        <ChatInput input={input} sendMessage={sendMessage} setInput={setInput}/>
+        <ChatHistory user_messages={user_messages} messagesEndRef={messagesEndRef}/>
+      </div>
+      <div>
+        <MenuButton setUserMessages={setUserMessages}/>
+      </div>
+    </>
   );
 };
 
