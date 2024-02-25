@@ -28,23 +28,23 @@ const Chat = () => {
       setInput('');
     }
 
-    // let response = await fetch('http://0.0.0.0:15000/prompt',
-    //   {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       // 'Access-Control-Allow-Origin': '*'
-    //     },
-    //     body: JSON.stringify({
-    //       'prompt': input.trim(),
-    //     })
-    //   }
-    // )
+    let response = await fetch('http://0.0.0.0:15000/prompt',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({
+          'prompt': input.trim(),
+        })
+      }
+    )
 
-    // let response_data = await response.json()
-    // console.log(response_data);
+    let response_data = await response.json()
+    console.log(response_data);
 
-    // setUserMessages([...user_messages,{ text: input, user: true }, { text: response_data.reponse, user: false }]);
+    setUserMessages([...user_messages,{ text: input, user: true }, { text: response_data.reponse, user: false }]);
   };
 
   return (
