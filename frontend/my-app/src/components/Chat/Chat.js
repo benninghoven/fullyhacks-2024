@@ -23,7 +23,7 @@ const Chat = () => {
   const sendMessage = async (event) => {
     event.preventDefault();
 
-    let response = await fetch('http://0.0.0.0:15000/prompt', 
+    let response = await fetch('http://flask-app:15000/prompt', 
       {
         'method': 'POST',
         'headers': {
