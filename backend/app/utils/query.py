@@ -1,6 +1,9 @@
 from llama_index import VectorStoreIndex, load_index_from_storage
 from llama_index.storage.storage_context import StorageContext
 
+# from llama_index.memory import ChatMemoryBuffer
+# memory = ChatMemoryBuffer.from_defaults(token_limit=1500)
+
 # retrieve index from persisted storage context
 def RetrieveFromStorageContext(collection) -> VectorStoreIndex:
     """
@@ -22,5 +25,9 @@ def query(collection, prompt):
 def chat(collection, prompt):
     print(collection)
     index = RetrieveFromStorageContext(collection=collection)
-    chat_engine = index.as_chat_engine()
+    # chat_engine = index.as_chat_engine()
+    chat_engine = index.as_chat_engine(
+        chat_mode="context",
+        # memory=memory,
+    )
     return chat_engine.chat(prompt).response

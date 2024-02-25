@@ -1,6 +1,7 @@
 from app.main import bp
-from app.utils.query import query
+from app.utils.query import query, chat
 from flask import Flask, jsonify, request
+import os
 
 
 @bp.route('/prompt', methods=["POST"])
@@ -24,8 +25,16 @@ def textbooks():
     if request.method == "GET":
 
         data = request.get_json()
-        prompt = data["?"]
-        response = query("bookname", prompt)
+        bookName = data["textbook_name"]
+        response = query(bookName, prompt)
+
+        bookDirectoryPath = "/app/app/data"
+        bookPath = os.path.join(bookDirectoryPath, bookName)
+
+        if os.path.isdir(bookPath):
+            response = f"Book '{bookName}' success"
+        else:
+            response = f"Book '{bookName}' not found"
 
         return jsonify({
             "reponse": response,
