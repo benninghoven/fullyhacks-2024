@@ -1,6 +1,10 @@
 from app.main import bp
+from app.utils.query import query
 
 
-@bp.route('/')
-def index():
-    return 'This is The Main Blueprint'
+@bp.get('/prompt')
+def prompt():
+    
+
+    
+    return
