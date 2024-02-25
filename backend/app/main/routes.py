@@ -18,5 +18,3 @@ def prompt():
         })
     else:
         return jsonify({"error": "Unsupported method"}), 400
-
-
