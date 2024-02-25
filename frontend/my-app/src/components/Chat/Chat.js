@@ -24,7 +24,7 @@ const Chat = () => {
     event.preventDefault();
 
     if(input.trim() !== '') {
-      setUserMessages([...user_messages, { text: input, user: false }]);
+      setUserMessages([...user_messages, { text: input, user: true }]);
       setInput('');
     }
 
