@@ -1,0 +1,16 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    z-index: 1;
+  }
+  
+  .logo {
+    height: 40px;
+    margin-left: 20px;
+  }

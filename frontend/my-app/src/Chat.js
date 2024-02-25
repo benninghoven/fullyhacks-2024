@@ -4,32 +4,36 @@ import './Chat.css';
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const messagesEndRef = useRef(null);
+  const messagesStartRef = useRef(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  const scrollToTop = () => {
+    messagesStartRef.current?.scrollIntoView({ behavior: "smooth" })
   }
 
-  useEffect(scrollToBottom, [messages]);
+  useEffect(scrollToTop, [messages]);
 
   const sendMessage = (event) => {
     event.preventDefault();
-    setMessages([...messages, input]);
-    setInput('');
+    if(input.trim() !== '') {
+      setMessages([{ text: input, user: true }, ...messages]);
+      setInput('');
+    }
   };
 
   return (
     <div className="chat">
-      <div className="chat__messages">
-        {messages.map((message, i) => (
-          <p key={i}>{message}</p>
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
       <form className="chat__input">
         <input value={input} onChange={(e) => setInput(e.target.value)} />
         <button type="submit" onClick={sendMessage}>Send</button>
       </form>
+      <div className="chat__messages">
+        <div ref={messagesStartRef} />
+        {messages.map((message, i) => (
+          <div key={i} className={`chat__message ${message.user ? 'chat__userMessage' : ''}`}>
+            <p>{message.text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
