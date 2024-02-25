@@ -46,9 +46,6 @@
   border-radius: 15px;
   font-size: 20px;
   background-color: gray;
-  word-wrap: break-word;
-  width: 100%;
-  overflow-wrap: break-word;
 }
 
 .chat__input button {
