@@ -1,0 +1,42 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 80%; /* Adjust this to change the width of the chat */
+    margin: 0 auto; /* This will center the chat on the page */
+    font-family: 'Arial', sans-serif; /* Use a modern font */
+  }
+  
+  .chat__messages {
+    flex: 1;
+    overflow: auto;
+    padding: 10px;
+    font-size: 20px; /* Increase the font size */
+  }
+  
+  .chat__input {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 15px;
+  }
+  
+  .chat__input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px; /* Increase the font size */
+    background-color: white;
+  }
+  
+  .chat__input button {
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: cyan;
+    color: white;
+    cursor: pointer;
+    font-size: 20px; /* Increase the font size */
+  }
+  

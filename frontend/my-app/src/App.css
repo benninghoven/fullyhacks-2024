@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, purple, pink, blue);
+}
+
+.app {
+  width: 80%; /* Adjust this to change the width of the chat */
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif; /* Use a modern font */
+}
