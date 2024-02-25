@@ -13,6 +13,8 @@ services:
     command: sh -c "pip install --no-cache-dir -r requirements.txt && OPENAI_KEY=$(cat /run/secrets/openai_key) flask run --reload"
     secrets:
       - openai_key
+    networks:
+      - fullyhacks-network
 
   web-app:
     image: node:14-alpine
@@ -24,8 +26,17 @@ services:
     environment:
       - NODE_ENV=development
     command: sh -c "npm install && npm start"
+    networks:
+      - fullyhacks-network
+
+networks:
+  fullyhacks-network:
+    driver: bridge
 
 
 secrets:
   openai_key:
    file: ./backend/openai_key.txt
+
+
+
