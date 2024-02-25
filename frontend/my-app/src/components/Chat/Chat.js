@@ -23,7 +23,12 @@ const Chat = () => {
   const sendMessage = async (event) => {
     event.preventDefault();
 
-    let response = await fetch('http://localhost:5000/prompt', 
+    if(input.trim() !== '') {
+      setUserMessages([...user_messages, { text: input, user: true }]);
+      setInput('');
+    }
+
+    let response = await fetch('http://0.0.0.0:15000/prompt',
       {
         method: 'POST',
         headers: {
@@ -39,10 +44,7 @@ const Chat = () => {
     let response_data = await response.json()
     console.log(response_data);
 
-    if(input.trim() !== '') {
-      setUserMessages([...user_messages, { text: response_data.reponse, user: false }]);
-      setInput('');
-    }
+    setUserMessages([...user_messages,{ text: input, user: true }, { text: response_data.reponse, user: false }]);
   };
 
   return (
