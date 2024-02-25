@@ -5,7 +5,7 @@ body {
   /* display: flex; */
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, purple, pink, blue);
+  background: linear-gradient(to right, rgb(59, 2, 97), rgb(0, 0, 0),rgb(59, 2, 97), rgb(0, 0, 0), rgb(59, 2, 97));
 }
 
 .app {

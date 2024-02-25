@@ -8,9 +8,12 @@
   align-items: center;
   background-color: transparent;
   z-index: 1;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-  height: 40px;
-  margin-left: 20px;
+  height: 120px;
+  margin-top: 7%;
+  margin-left: 2%;
 }

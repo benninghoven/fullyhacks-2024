@@ -7,6 +7,7 @@
     width: 100%;
     overflow-y: auto;
     scrollbar-width: thin;
+    margin-bottom: 75px;
     scrollbar-color: rgba(155, 155, 155, 0.7) transparent;
 }
 
@@ -19,11 +20,11 @@
 }
 
 .chat__userMessage {
-    background-color: #dcf8c6;
+    background-color: #7CFF01;
 }
 
 .chat__AIMessage {
-    background-color: lightblue;
+    background-color: #01FFF4;
 }
 
 .chat__userMessage__container {
@@ -53,7 +54,7 @@
 }
 
 .icon {
-    height: 40px;
+    height: 45px;
 }
 
 /* 
