@@ -8,7 +8,7 @@ def RetrieveFromStorageContext(collection) -> VectorStoreIndex:
     :return: VectorStoreIndex
     """
     print('retrieving from collection: ', collection)
-    storage_context = StorageContext.from_defaults(persist_dir=f"data/{collection}")
+    storage_context = StorageContext.from_defaults(persist_dir=f"app/data/{collection}")
     index = load_index_from_storage(storage_context, dim=384)
     return index
 
