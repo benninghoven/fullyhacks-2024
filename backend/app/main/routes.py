@@ -6,7 +6,7 @@ from flask import Flask, jsonify, request
 @bp.route('/prompt', methods=["GET", "POST"])
 def prompt():
 
-    if request.method == "GET":
+    if request.method == "POST":
 
         data = request.get_json()
         prompt = data["prompt"]
@@ -16,14 +16,14 @@ def prompt():
             "reponse": response,
             })
 
-    elif request.method == 'POST':
-        data = request.get_json()
+    # elif request.method == 'POST':
+    #     data = request.get_json()
 
-        return jsonify({
-            "prompt": data.get("prompt", "ERROR: No prompt provided"),
-            })
-    else:
-        return jsonify({"error": "Unsupported method"}), 400
+    #     return jsonify({
+    #         "prompt": data.get("prompt", "ERROR: No prompt provided"),
+    #         })
+    # else:
+    #     return jsonify({"error": "Unsupported method"}), 400
 
 
 @bp.route('/textbooks', methods=["GET", "POST"])

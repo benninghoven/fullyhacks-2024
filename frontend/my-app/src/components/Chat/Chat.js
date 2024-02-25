@@ -20,10 +20,28 @@ const Chat = () => {
 
   // on input submit, send message
   // this is where we will call the api
-  const sendMessage = (event) => {
+  const sendMessage = async (event) => {
     event.preventDefault();
+
+    let response = await fetch('http://0.0.0.0:15000/prompt', 
+      {
+        'method': 'POST',
+        'headers': {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },
+        'body': {
+          'prompt': input.trim(),
+        }
+      }
+    )
+
+    let response_data = await response.json()
+    let reply = response_data["response"];
+    console.log(reply);
+
     if(input.trim() !== '') {
-      setUserMessages([...user_messages, { text: input, user: true }]);
+      setUserMessages([...user_messages, { text: reply, user: false }]);
       setInput('');
     }
   };
