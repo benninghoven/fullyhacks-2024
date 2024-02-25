@@ -8,7 +8,7 @@ const ChatHistory = ({user_messages, messagesEndRef}) => {
             <>
               <div  className={`${message.user ? 'chat__userMessage__container' : 'chat__AIMessage__container'}`}>
                 <div className={`${message.user ? 'chat__userIcon' : 'chat__AIIcon'}`}>
-                  <img src="logo.png" alt="Logo" className="icon" />
+                  <img src="Ai_icon.png" alt="Logo" className="icon" />
                 </div>
                 <div key={i} className={`chat__message ${message.user ? 'chat__userMessage' : 'chat__AIMessage'}`}>
                     <p>{message.text}</p>
