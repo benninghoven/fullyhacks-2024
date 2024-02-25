@@ -14,6 +14,17 @@ services:
     secrets:
       - openai_key
 
+  web-app:
+    image: node:14-alpine
+    volumes:
+      - ./frontend/my-app:/app
+    ports:
+      - "3000:3000"
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
+    command: sh -c "npm install && npm start"
+
 
 secrets:
   openai_key:
