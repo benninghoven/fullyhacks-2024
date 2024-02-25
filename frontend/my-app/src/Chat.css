@@ -14,6 +14,7 @@
   font-size: 20px;
   display: flex;
   flex-direction: column-reverse;
+  width: 100%; /* Set a fixed width for the messages container */
 }
 
 .chat__message {
@@ -21,6 +22,7 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 20px;
+  word-wrap: break-word;
 }
 
 .chat__userMessage {
@@ -30,15 +32,14 @@
 
 .chat__input {
   display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  /* border: 2px solid cyan; */
+  padding: 20px;
   border-radius: 15px;
   background-color: transparent;
 }
 
 .chat__input input {
-  flex: 1;
+  width: 200px; /* Set the desired fixed width */
+  max-width: 100%; /* Ensures it doesn't exceed the parent's width */
   padding: 10px;
   border: none;
   border-radius: 15px;
@@ -47,6 +48,7 @@
 }
 
 .chat__input button {
+  width: 100px; /* Set the desired width */
   padding: 10px;
   border: none;
   border-radius: 15px;
@@ -56,6 +58,9 @@
   font-size: 20px;
 }
 
-.chat__input form{
+.chat__input form {
+  flex: 1; /* Take up remaining space */
+  display: inline-flex;
+  align-items: flex-end; /* Center items vertically */
   border-color: transparent;
 }
