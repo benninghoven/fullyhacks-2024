@@ -3,9 +3,8 @@ import './ChatInput.css'
 
 const ChatInput = ({input, setInput, sendMessage}) => {
   return (
-    <form className="chat__input">
-        <input value={input} onChange={(e) => setInput(e.target.value)} />
-        <button type="submit" onClick={sendMessage}>Send</button>
+    <form className="fancy" onSubmit={sendMessage}>
+        <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter query" />
     </form>
   )
 }
