@@ -10,4 +10,5 @@ services:
     environment:
       - FLASK_APP=app
       - FLASK_RUN_HOST=0.0.0.0
+
     command: sh -c "pip install --no-cache-dir -r requirements.txt && flask run --reload"
