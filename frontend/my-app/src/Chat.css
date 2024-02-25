@@ -12,7 +12,7 @@
   padding: 10px;
   font-size: 20px;
   display: flex;
-  flex-direction: column-reverse; /* Reverse the direction */
+  flex-direction: column;
   width: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -35,10 +35,12 @@
 
 .chat__input {
   display: flex;
+  justify-content: center; /* Centers children horizontally */
   padding: 20px;
   border-radius: 15px;
   background-color: transparent;
 }
+
 
 .chat__input input {
   padding: 10px;
